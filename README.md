@@ -4,7 +4,7 @@ Authors: Sham Al-Jalam
 
 ## URLs
 
-*  pull request: [https://github.com/ShamAhmad2022/caps/pull/1](https://github.com/ShamAhmad2022/caps/pull/1)
+*  pull request: [https://github.com/ShamAhmad2022/airline-system/pull/1](https://github.com/ShamAhmad2022/airline-system/pull/1)
 
 ### Running the app:
 * node system.js

@@ -33,8 +33,10 @@ setInterval(() => {
 }, 10000);//10000
 
 
-socket.on('Arrived', arrivedFlightsHandler);
+socket.on('arrived', arrivedFlightsHandler);
 
 function arrivedFlightsHandler (payload){
-    console.log(`Manager: we’re greatly thankful for the amazing flight, ${payload.Flight.Details.pilot}`);
+    setTimeout(() => {
+        console.log(`Manager: we’re greatly thankful for the amazing flight, ${payload.Flight.Details.pilot}`);
+    }, 10);
 }

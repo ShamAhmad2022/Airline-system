@@ -10,15 +10,23 @@ const serverSocket = io.connect(serverhost);
 const nameSpaceSocket = io.connect(nameSpacehost);
 
 
+serverSocket.on('new-flight', newFlightsHandler);
 
-serverSocket.on('Arrived', arrivedFlightsHandler);
-
-function arrivedFlightsHandler (payload){
+function newFlightsHandler(payload){
+    setTimeout(() => {
+        console.log(`Pilot: flight with ID ${payload.Flight.Details.flightID} took-off`);
+        payload.Flight.event = 'took-off';
+        nameSpaceSocket.emit('took-off', payload);
+    }, 4000);
     
-    nameSpaceSocket.emit('took-off', payload);
-    console.log(`Pilot: flight with ID ${payload.Flight.Details.flightID} took-off`);
+    nameSpaceSocket.on('took-off', tookOffFlightsHandler);
     
-    serverSocket.emit('Arrived2', payload);
-    console.log(`Pilot: flight with ID ${payload.Flight.Details.flightID} has arrived`);
-    
+    function tookOffFlightsHandler(payload){
+        setTimeout(() => {
+            console.log(`Pilot: flight with ID ${payload.Flight.Details.flightID} has arrived`);
+            payload.Flight.event = 'arrived';
+            serverSocket.emit('arrived', payload);
+        }, 3000);
+    }
 }
+

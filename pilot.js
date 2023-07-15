@@ -2,22 +2,23 @@
 
 const eventsPool = require('./events');
 
-eventsPool.on('took-off', tookOffFlightsHandler);
+eventsPool.on('new-flight', newFlightsHandler);
 
-function tookOffFlightsHandler (payload){
-
-    setInterval(() => {
+function newFlightsHandler(payload){
+    setTimeout(() => {
         console.log(`Pilot: flight with ID ${payload.Flight.Details.flightID} took-off`);
-        console.log(payload);
-    }, 14000);
+        payload.Flight.event = 'took-off';
+        eventsPool.emit('took-off', payload);
+    }, 4000);
 }
 
-eventsPool.on('Arrived', arrivedFlightsHandler);
+eventsPool.on('took-off', tookOffFlightsHandler);
 
-function arrivedFlightsHandler (payload){
-
-    setInterval(() => {
+function tookOffFlightsHandler(payload){
+    setTimeout(() => {
         console.log(`Pilot: flight with ID ${payload.Flight.Details.flightID} has arrived`);
-        console.log(payload);
-    }, 17000);
+        payload.Flight.event = 'arrived';
+        eventsPool.emit('arrived', payload);
+    }, 3000);
+
 }

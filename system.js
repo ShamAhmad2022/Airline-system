@@ -8,7 +8,17 @@ eventsPool.on('new-flight', newFlightsHandler);
 
 function newFlightsHandler(payload){
     console.log(payload)
-    eventsPool.emit('took-off', payload);
-    eventsPool.emit('Arrived', payload);
 }
 
+eventsPool.on('took-off', tookOffFlightsHandler);
+
+function tookOffFlightsHandler(payload){
+    console.log(payload);
+}
+
+
+eventsPool.on('arrived', arrivedFlightsHandler);
+
+function arrivedFlightsHandler (payload){
+    console.log(payload);
+}

@@ -26,9 +26,10 @@ setInterval(() => {
     eventsPool.emit('new-flight', fromManager);
 }, 10000);
 
-eventsPool.on('Arrived', arrivedFlightsHandler);
+eventsPool.on('arrived', arrivedFlightsHandler);
 
 function arrivedFlightsHandler (payload){
-
-    console.log(`Manager: we’re greatly thankful for the amazing flight, ${payload.Flight.Details.pilot}`);
+    setTimeout(() => {
+        console.log(`Manager: we’re greatly thankful for the amazing flight, ${payload.Flight.Details.pilot}`);
+    }, 10);
 }

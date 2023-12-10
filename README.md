@@ -6,7 +6,6 @@
 - Pilot (taking actions)
 - System (logging details)
 <br>
-<br>
 
 This project is an implementation for Nodejs Events and Socket.IO.
 

@@ -5,9 +5,8 @@
 - Manager (starting point)
 - Pilot (taking actions)
 - System (logging details)
-<br>
 
-This project is an implementation for Nodejs Events and Socket.IO.
+This project is an implementation of Nodejs Events and Socket.IO.
 
 ### Running the app:
 

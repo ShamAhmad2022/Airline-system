@@ -1,10 +1,14 @@
-# Lab 13
-## Event Driven Applications
-Authors: Sham Al-Jalam
+# Airline System
+ a control system for an Airline that keep tracking each flight status by contacting the pilot of that flight who in turn will inform the manager and the system when a flight took-off and arrived.
 
-## URLs
+ there are three main components in this system:
+- Manager (starting point)
+- Pilot (taking actions)
+- System (logging details)
+<br>
+<br>
 
-*  pull request: [https://github.com/ShamAhmad2022/airline-system/pull/4/](https://github.com/ShamAhmad2022/airline-system/pull/4/)
+This project is an implementation for Nodejs Events and Socket.IO.
 
 ### Running the app:
 
